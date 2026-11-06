@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-optimized",
+  "version": "1.0.0",
+  "description": "Optimized portfolio site: minified assets, compressed images, lazy loading",
+  "scripts": {
+    "minify:css": "csso css/style.css --output css/style.min.css",
+    "minify:js": "terser js/script.js --compress --mangle --output js/script.min.js",
+    "build": "npm run minify:css && npm run minify:js",
+    "build:offline": "python3 scripts/minify.py",
+    "images": "python3 scripts/make_images.py --compress-only",
+    "report": "python3 scripts/size_report.py",
+    "serve": "npx serve ."
+  },
+  "devDependencies": {
+    "csso-cli": "^4.0.2",
+    "terser": "^5.31.0"
+  },
+  "author": "Pratiksha Bhende",
+  "license": "MIT"
+}
